@@ -24,6 +24,7 @@ namespace CoderGirl_SalesList
             }
             return salesRecords;
         }
+
         private SalesRecord CreateSalesRecord(string line)
         {
             SalesRecord salesRecord = new SalesRecord();
@@ -34,7 +35,7 @@ namespace CoderGirl_SalesList
             salesRecord.SalesChannel = properties[3];
             salesRecord.OrderPriority = properties[4];
             salesRecord.OrderDate = DateTime.Parse(properties[5]);
-
+            //TODO: adapt other properties
             return salesRecord;
         }
     }

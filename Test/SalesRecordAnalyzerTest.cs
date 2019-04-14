@@ -65,13 +65,13 @@ namespace Test
                 new SalesRecord{Country = "Country1"},
                 new SalesRecord{Country = "Country2"},
                 new SalesRecord{Country = "Country3"},
-                new SalesRecord{Country = "country3"},
+                new SalesRecord{Country = "Country3"},
                 new SalesRecord{Country = "Country2"}
             };
 
             int actual = salesRecordAnalyzer.GetCountryCount(salesRecords);
 
-            Assert.Equal(4, actual);
+            Assert.Equal(3, actual);
         }
 
         [Fact]
@@ -79,11 +79,11 @@ namespace Test
         {
             List<SalesRecord> salesRecords = new List<SalesRecord>
             {
-                new SalesRecord{TotalProfit = 17.2},
-                new SalesRecord{TotalProfit = 17.0},
-                new SalesRecord{TotalProfit = 0.0},
-                new SalesRecord{TotalProfit = 17.1},
-                new SalesRecord{TotalProfit = 10.0}
+                new SalesRecord{TotalProfit = 17.2m},
+                new SalesRecord{TotalProfit = 17.0m},
+                new SalesRecord{TotalProfit = 0.0m},
+                new SalesRecord{TotalProfit = 17.1m},
+                new SalesRecord{TotalProfit = 10.0m}
             };
 
             decimal actual = salesRecordAnalyzer.GetMaxProfit(salesRecords);
@@ -96,14 +96,14 @@ namespace Test
         {
             List<SalesRecord> salesRecords = new List<SalesRecord>
             {
-                new SalesRecord{TotalRevenue = 17.2},
-                new SalesRecord{TotalRevenue = 17.0},
-                new SalesRecord{TotalRevenue = 0.0},
-                new SalesRecord{TotalRevenue = 17.1},
-                new SalesRecord{TotalRevenue = 10.0}
+                new SalesRecord{TotalRevenue = 17.2m},
+                new SalesRecord{TotalRevenue = 17.0m},
+                new SalesRecord{TotalRevenue = 0.0m},
+                new SalesRecord{TotalRevenue = 17.1m},
+                new SalesRecord{TotalRevenue = 10.0m}
             };
 
-            decimal actual = salesRecordAnalyzer.GetMaxProfit(salesRecords);
+            decimal actual = salesRecordAnalyzer.GetTotalRevenue(salesRecords);
 
             Assert.Equal((decimal)61.3, actual);
         }
