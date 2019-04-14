@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CoderGirl_SalesList
 {
@@ -12,19 +13,25 @@ namespace CoderGirl_SalesList
             program.Run();
             Console.ReadLine();
         }
+
         private void Run()
         {
             List<SalesRecord> salesRecords = GetSalesRecordsFromFileData();
             int countNorthAmerica = GetCountForNorthAmerica(salesRecords);
+            Console.WriteLine(countNorthAmerica);
         }
 
         private int GetCountForNorthAmerica(List<SalesRecord> salesRecords)
         {
             int count = 0;
-            foreach (SalesRecord record in salesRecords)
-            { 
-
+            foreach(SalesRecord record in salesRecords)
+            {
+                if(record.Region == "North America")
+                {
+                    count++;
+                }
             }
+
             return count;
         }
 
@@ -32,13 +39,14 @@ namespace CoderGirl_SalesList
         {
             List<SalesRecord> salesRecords = new List<SalesRecord>();
             bool isFirstRow = true;
-            foreach (string line in File.ReadLines(@"c:Data\1000 Sales Records.csv"))
+            foreach (string line in File.ReadLines(@"1000 Sales Records.csv"))
             {
                 if (isFirstRow)
                 {
                     isFirstRow = false;
                     continue;
                 }
+
                 SalesRecord salesRecord = CreateSalesRecord(line);
                 salesRecords.Add(salesRecord);
             }
