@@ -13,8 +13,8 @@ namespace CoderGirl_SalesList
         {
             //TODO: Add specific implementation classes
 
-            //this.SalesRecordAnalyzer = new ??
-            //this.SalesRecordAdapter = new ??
+            this.SalesRecordAnalyzer = new TacosAreGreat();
+            this.SalesRecordAdapter = new SalesRecordAdapter();
         }
     }
 }

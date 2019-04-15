@@ -35,7 +35,16 @@ namespace CoderGirl_SalesList
             salesRecord.SalesChannel = properties[3];
             salesRecord.OrderPriority = properties[4];
             salesRecord.OrderDate = DateTime.Parse(properties[5]);
-            //TODO: adapt other properties
+            salesRecord.OrderID = int.Parse(properties[6]);
+            salesRecord.ShipDate = DateTime.Parse(properties[7]);
+            salesRecord.UnitsSold = int.Parse(properties[8]);
+            salesRecord.UnitPrice = decimal.Parse(properties[9]);
+            salesRecord.UnitCost = decimal.Parse(properties[10]);
+            salesRecord.TotalRevenue = decimal.Parse(properties[11]);
+            salesRecord.TotalCost = decimal.Parse(properties[12]);
+            salesRecord.TotalProfit = decimal.Parse(properties[13]);
+           
+
             return salesRecord;
         }
     }

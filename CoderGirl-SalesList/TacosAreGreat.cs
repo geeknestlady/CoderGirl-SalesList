@@ -9,7 +9,10 @@ namespace CoderGirl_SalesList
     {
         public bool AreOrderDatesBefore(DateTime cutoffDate, List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            var datesBefore = salesRecords.Any(tacoCat => tacoCat.OrderDate < cutoffDate);
+            
+
+            return datesBefore;
         }
 
         public List<string> GetCountries(List<SalesRecord> salesRecords)
@@ -21,27 +24,34 @@ namespace CoderGirl_SalesList
 
         public int GetCountryCount(List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            List<string> uniqueCountries = GetCountries(salesRecords);
+            int countryCount = uniqueCountries.Count();
+            return countryCount;
         }
 
         public decimal GetMaxProfit(List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            decimal maxProfit = salesRecords.Max(tacoCat => tacoCat.TotalProfit);
+            return maxProfit;
         }
 
         public decimal GetTotalRevenue(List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            decimal totalRevenue = salesRecords.Sum(tacoCat => tacoCat.TotalRevenue);
+            return totalRevenue;
         }
 
         public List<SalesRecord> OrderByShipDate(List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            var orderedDates = salesRecords.OrderBy(p => p.ShipDate).ToList();
+            return orderedDates;
+                               
         }
 
         public List<SalesRecord> OrderByUnitsSoldDescending(List<SalesRecord> salesRecords)
         {
-            throw new NotImplementedException();
+            var orderedUnits = salesRecords.OrderByDescending(tacoCat => tacoCat.UnitsSold).ToList();
+            return orderedUnits;
         }
     }
 }
